@@ -1,0 +1,25 @@
+.container {
+  width: 18rem;
+  padding: 2rem;
+}
+.links {
+  display: flex;
+  flex-direction: column;
+}
+.navlink {
+  list-style: none;
+  margin: 0.75rem 0rem;
+  text-transform: uppercase;
+}
+.navlink a {
+  text-decoration: none;
+  color: black;
+}
+.navlink a:hover {
+  color: #f9826c;
+}
+.header {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
