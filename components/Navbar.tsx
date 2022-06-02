@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Fragment } from "react";
+import CartButton from "./CartButton";
 import classes from "./Navbar.module.css";
 import Sort from "./Sort";
 
@@ -10,7 +10,7 @@ const Navbar = () => {
         <h6 className={classes.logo}>Bejamas</h6>
         <ul className={classes.links}>
           <li className={classes.navlink}>
-            <Link href="/cart">Cart</Link>
+            <CartButton />
           </li>
         </ul>
       </nav>

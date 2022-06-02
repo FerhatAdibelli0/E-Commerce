@@ -4,7 +4,7 @@ type Data = {
   message: string;
 };
 
-// GET/api/products/
+// GET/api/categories/
 
 export default async function handler(
   req: NextApiRequest,
