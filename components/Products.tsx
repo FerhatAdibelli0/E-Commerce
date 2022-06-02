@@ -11,10 +11,20 @@ import {
   Button,
 } from "reactstrap";
 
+// const sortQuotes = (products, ascending) => {
+//   return products.sort((proA, proB) => {
+//     if (ascending) {
+//       return proA.id > proB.id ? 1 : -1;
+//     } else {
+//       return proA.id < proB.id ? 1 : -1;
+//     }
+//   });
+// };
+
 const Products = () => {
   return (
     <div className={classes.container}>
-      <Row>
+      <Row className="p-5">
         <Col sm="6" className="mb-3">
           <Card>
             <CardImg
