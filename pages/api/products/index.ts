@@ -1,14 +1,27 @@
 import { gql } from "graphql-request";
-import graphQLClient from "./graphql-client";
 
-const getAllCustomers = async () => {
+import { GraphQLClient } from "graphql-request";
+
+const endpoint = "https://graphql.fauna.com/graphql";
+
+const graphQLClient = new GraphQLClient(endpoint, {
+  headers: {
+    authorization: `Basic Zm5BRW9GMG1DaUFDUzY0Q2puS1hFeVE1aEFwM0w0cEtLb3pGaWNnaTpGZXJoYXQ6YWRtaW4=`,
+  },
+});
+
+const getAllProducts = async () => {
   const query = gql`
-    {
-      allCustomers {
+    query {
+      posts {
         data {
-          _id
-          firstName
-          lastName
+          name
+          category
+          price
+          currency
+          image
+          bestseller
+          featured
         }
       }
     }
@@ -17,7 +30,7 @@ const getAllCustomers = async () => {
   const response = await graphQLClient.request(query);
   const data = JSON.parse(JSON.stringify(response));
 
-  return data.allCustomers.data;
+  return data.posts.data;
 };
 
-export default getAllCustomers;
+export default getAllProducts;

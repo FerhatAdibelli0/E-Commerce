@@ -21,24 +21,15 @@ const Products = () => {
       <Row className="p-5">
         {products.length > 0 ? (
           products.map((item: any) => (
-            <Col sm="6" className="mb-3">
+            <Col sm="6" className="mb-3" key={item.image}>
               <Card>
-                <CardImg
-                  alt="Card image cap"
-                  src="https://picsum.photos/318/180"
-                  top
-                  width="100%"
-                />
+                <CardImg alt={item.name} src={item.image} top width="100%" />
                 <CardBody>
-                  <CardTitle tag="h5">Card title</CardTitle>
+                  <CardTitle tag="h5">{item.name}</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
-                    Card subtitle
+                    {item.price}
                   </CardSubtitle>
-                  <CardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </CardText>
+                  <CardText>{item.currency}</CardText>
                   <div className="d-flex justify-content-center">
                     <Button>Add To Cart</Button>
                   </div>

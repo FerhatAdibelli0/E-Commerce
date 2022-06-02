@@ -3,16 +3,16 @@ import Products from "../components/Products";
 import { productsSliceActions } from "../redux/product";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import getAllProducts from "./api/products";
 import classes from "../styles/Home.module.css";
-import { listGuestbookEntries } from "./api/products";
 
 const HomePage = () => {
   const dispatch = useDispatch();
 
   const fetchProducts = async () => {
     try {
-      const data = await listGuestbookEntries();
-      // dispatch(productsSliceActions.replaceProducts(products || []));
+      const data = await getAllProducts();
+      dispatch(productsSliceActions.replaceProducts(data));
     } catch (err) {
       console.log(err);
     }
