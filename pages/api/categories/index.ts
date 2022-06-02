@@ -1,19 +1,30 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { gql } from "graphql-request";
 
-type Data = {
-  message: string;
+import { GraphQLClient } from "graphql-request";
+
+const endpoint = "https://graphql.fauna.com/graphql";
+
+const graphQLClient = new GraphQLClient(endpoint, {
+  headers: {
+    authorization: `Basic Zm5BRW9GMG1DaUFDUzY0Q2puS1hFeVE1aEFwM0w0cEtLb3pGaWNnaTpGZXJoYXQ6YWRtaW4=`,
+  },
+});
+
+const getAllCaterories = async () => {
+  const query = gql`
+    query {
+      posts {
+        data {
+          category
+        }
+      }
+    }
+  `;
+
+  const response = await graphQLClient.request(query);
+  const data = JSON.parse(JSON.stringify(response));
+
+  return data.posts.data;
 };
 
-// GET/api/categories/
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  if (req.method === "GET") {
-    // Connect the database
-    // Parse Url (Page,Ast|Des,filter)
-    // Pull data from database
-    res.status(200).json({ message: "Successfully" });
-  }
-}
+export default getAllCaterories;

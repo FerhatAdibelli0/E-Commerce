@@ -4,6 +4,7 @@ import { productsSliceActions } from "../redux/product";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import getAllProducts from "./api/products";
+import getAllCaterories from "./api/categories";
 import classes from "../styles/Home.module.css";
 
 const HomePage = () => {
@@ -18,19 +19,18 @@ const HomePage = () => {
     }
   };
 
-  // const fetchCategories = async () => {
-  //   try {
-  //     const data = await fetch("api/categories");
-  //     const categories = await data.json();
-  //     dispatch(productsSliceActions.replaceCategories(categories || []));
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const fetchCategories = async () => {
+    try {
+      const data = await getAllCaterories();
+      dispatch(productsSliceActions.replaceCategories(data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     fetchProducts();
-    // fetchCategories();
+    fetchCategories();
   }, []);
 
   return (
@@ -42,3 +42,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+

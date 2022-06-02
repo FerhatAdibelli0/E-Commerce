@@ -1,5 +1,7 @@
 import { productsSliceActions } from "../redux/product";
+import { cartSliceActions } from "../redux/cart";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import classes from "../components/Products.module.css";
 import {
   Card,
@@ -15,6 +17,12 @@ import {
 
 const Products = () => {
   const products = useSelector((state: any) => state.products.products);
+  const dispatch = useDispatch();
+
+  const addToCartHandler = (id: any) => {
+    const selectedItem = products.find((item: any) => item.id === id);
+    dispatch(cartSliceActions.addItemToCart(selectedItem));
+  };
 
   return (
     <div className={classes.container}>
@@ -31,7 +39,13 @@ const Products = () => {
                   </CardSubtitle>
                   <CardText>{item.currency}</CardText>
                   <div className="d-flex justify-content-center">
-                    <Button>Add To Cart</Button>
+                    <Button
+                      onClick={() => {
+                        addToCartHandler(item.id);
+                      }}
+                    >
+                      Add To Cart
+                    </Button>
                   </div>
                 </CardBody>
               </Card>

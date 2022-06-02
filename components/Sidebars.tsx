@@ -1,7 +1,9 @@
 import classes from "./Sidebars.module.css";
 import { Row } from "reactstrap";
+import { useSelector } from "react-redux";
 
 const Sidebars = () => {
+  let categories = useSelector((state: any) => state.products.categories);
   return (
     <Row className={classes.navbar}>
       <div className={classes.container}>
@@ -9,7 +11,9 @@ const Sidebars = () => {
           <span>Category</span>
           <li className={classes.navlink}>
             <input type="checkbox" id="People" name="People" value="People" />
-            <label>People</label>
+            <label>
+              {categories.length === 0 ? "Loading" : categories[0].category}
+            </label>
           </li>
           <li className={classes.navlink}>
             <input
@@ -18,15 +22,21 @@ const Sidebars = () => {
               name="Premium"
               value="Premium"
             />
-            <label>Premium</label>
+            <label>
+              {categories.length === 0 ? "Loading" : categories[1].category}
+            </label>
           </li>
           <li className={classes.navlink}>
             <input type="checkbox" id="Pets" name="Pets" value="Pets" />
-            <label>Pets</label>
+            <label>
+              {categories.length === 0 ? "Loading" : categories[2].category}
+            </label>
           </li>
           <li className={classes.navlink}>
             <input type="checkbox" id="Food" name="Food" value="Food" />
-            <label>Food</label>
+            <label>
+              {categories.length === 0 ? "Loading" : categories[3].category}
+            </label>
           </li>
           <li className={classes.navlink}>
             <input
@@ -35,15 +45,21 @@ const Sidebars = () => {
               name="Landmarks"
               value="Landmarks"
             />
-            <label>Landmarks</label>
+            <label>
+              {categories.length === 0 ? "Loading" : categories[3].category}
+            </label>
           </li>
           <li className={classes.navlink}>
             <input type="checkbox" id="Cities" name="Cities" value="Cities" />
-            <label>Cities</label>
+            <label>
+              {categories.length === 0 ? "Loading" : categories[3].category}
+            </label>
           </li>
           <li className={classes.navlink}>
             <input type="checkbox" id="Nature" name="Nature" value="Nature" />
-            <label>Nature</label>
+            <label>
+              {categories.length === 0 ? "Loading" : categories[3].category}
+            </label>
           </li>
           <br />
           <hr />

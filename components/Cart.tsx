@@ -4,6 +4,8 @@ import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { cartSliceActions } from "../redux/cart";
+import { uiSliceActions } from "../redux/ui";
+import ReactDOM from "react-dom";
 
 const Cart = (props: any) => {
   const items = useSelector((state: any) => state.cart.items);
@@ -11,6 +13,7 @@ const Cart = (props: any) => {
 
   const clearDataHandler = () => {
     dispatch(cartSliceActions.clearAllCart());
+    dispatch(uiSliceActions.isShown());
   };
 
   return (

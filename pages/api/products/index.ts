@@ -22,6 +22,7 @@ const getAllProducts = async () => {
           image
           bestseller
           featured
+          id
         }
       }
     }
