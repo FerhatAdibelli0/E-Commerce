@@ -21,6 +21,8 @@ const HomePage = () => {
   let filters = useSelector((state: any) => state.products.filters);
   let priceFilter = useSelector((state: any) => state.products.priceFilter);
   let sorting = useSelector((state: any) => state.products.sortby);
+  let sortingOrder = useSelector((state: any) => state.products.sortingOrder);
+  let currentpage = useSelector((state: any) => state.products.currentPage);
 
   const fetchCategories = async () => {
     try {
@@ -40,6 +42,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const filter = filters.length > 0 ? filters : null;
+      const sort_order = sortingOrder ? "ASC" : "DESC";
       try {
         const data = await fetch(
           "https://e918w86n71.execute-api.us-east-1.amazonaws.com/prod/ferhat/getProducts",
@@ -49,20 +52,21 @@ const HomePage = () => {
               categories: filter,
               maxPrice: priceFilter,
               sort_by: sorting,
-              sorting_order: "ASC",
-              page_number: 0,
+              sorting_order: sort_order,
+              page_number: currentpage,
             }),
           }
         );
         const result = await data.json();
         dispatch(productsSliceActions.replaceProducts(result.images));
+        dispatch(productsSliceActions.replaceProductCount(result.allImages));
       } catch (err) {
         console.log(err);
       }
     };
     fetchCategories();
     fetchProducts();
-  }, [filters, priceFilter, sorting]);
+  }, [filters, priceFilter, sorting, sortingOrder, currentpage]);
 
   return (
     <main className={classes.container}>

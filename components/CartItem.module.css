@@ -1,19 +1,19 @@
 .item {
   margin: 1rem 0;
-  background-color: #575757;
-  padding: 1rem;
+  background-color: #758076;
+  padding: 0.5rem;
 }
 
 .item h3 {
   margin: 0 0 0.5rem 0;
-  font-size: 1.75rem;
+  font-size: 1.0rem;
 }
 
-.item header {
+/* .item header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-}
+} */
 
 .details {
   display: flex;
@@ -22,37 +22,17 @@
 }
 
 .quantity img {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
 }
 
-.price {
-  font-size: 1.5rem;
+/* .price {
+  font-size: 1.0rem;
   font-weight: bold;
-}
+} */
 
 .itemprice {
   font-weight: normal;
   font-size: 1rem;
   font-style: italic;
-}
-
-.actions {
-  display: flex;
-  justify-content: flex-end;
-  margin: 0.5rem 0;
-}
-
-.actions button {
-  background-color: transparent;
-  border: 1px solid white;
-  margin-left: 0.5rem;
-  padding: 0.15rem 1rem;
-  color: white;
-}
-
-.actions button:hover,
-.actions button:active {
-  background-color: #4b4b4b;
-  color: white;
 }

@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import CartButton from "./CartButton";
 import classes from "./Navbar.module.css";
 import Sort from "./Sort";
-import { uiSliceActions } from "../redux/ui";
 import { useSelector } from "react-redux";
 import Cart from "./Cart";
 

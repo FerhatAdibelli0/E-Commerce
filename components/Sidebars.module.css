@@ -8,8 +8,8 @@
 }
 .navlink {
   list-style: none;
-  margin: 0.75rem 0rem;
-  text-transform: uppercase;
+  margin: 0.5rem 0rem;
+  text-transform:capitalize;
 }
 .navlink a {
   text-decoration: none;

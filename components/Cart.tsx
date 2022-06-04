@@ -5,38 +5,47 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { cartSliceActions } from "../redux/cart";
 import { uiSliceActions } from "../redux/ui";
-import ReactDOM from "react-dom";
 
 const Cart = (props: any) => {
   const items = useSelector((state: any) => state.cart.items);
   const dispatch = useDispatch();
+  console.log(items);
 
   const clearDataHandler = () => {
     dispatch(cartSliceActions.clearAllCart());
     dispatch(uiSliceActions.isShown());
   };
 
+  const closeCartHandler = () => {
+   dispatch(uiSliceActions.isShown());
+  };
+
   return (
     <Card className={classes.cart}>
+      <div className={classes.closer}>
+        <span onClick={closeCartHandler}>X</span>
+      </div>
       <h2>Your Shopping Cart</h2>
       <ul>
         {items.length > 0 ? (
-          items.map((fun: any) => (
+          items.map((fun: any, index: any) => (
             <CartItem
-              key={fun.id}
+              key={index}
               item={{
-                id: fun.id,
                 name: fun.name,
-                image:fun.image,
+                image: fun.image,
                 price: fun.price,
               }}
             />
           ))
         ) : (
-          <h4>No found product in cart</h4>
+          <h4>No found product</h4>
         )}
       </ul>
-      <button onClick={clearDataHandler}>Clear All</button>
+      <div className={classes.button}>
+        {" "}
+        <button onClick={clearDataHandler}>Clear All</button>
+      </div>
     </Card>
   );
 };

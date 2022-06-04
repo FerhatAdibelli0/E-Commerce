@@ -1,16 +1,58 @@
 .cart {
   max-width: 30rem;
-  background-color: #313131;
+  background-color: #6e6363;
   color: white;
+  position: absolute;
+  z-index: 10;
+  top: 8%;
+  right: 4%;
 }
 
 .cart h2 {
   font-size: 1.25rem;
   margin: 0.5rem 0;
+  text-align: center;
+}
+
+.cart h4 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+.closer {
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+}
+.closer span {
+  padding: 5px;
+  cursor: pointer;
+}
+.closer span:hover,
+.closer span:active {
+  color: black;
 }
 
 .cart ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button button {
+  padding: 2px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.button button:hover,
+.button button:active {
+  background-color: black;
+  color: white;
 }

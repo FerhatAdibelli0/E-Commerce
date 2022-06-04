@@ -2,10 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialuiState = {
   products: [],
+  productsCount: null,
   categories: [],
   filters: [],
   priceFilter: null,
-  sortby:null,
+  sortby: null,
+  sortingOrder: false,
+  currentPage: 0,
 };
 
 const productSlice = createSlice({
@@ -14,6 +17,9 @@ const productSlice = createSlice({
   reducers: {
     replaceProducts(state, action) {
       state.products = action.payload;
+    },
+    replaceProductCount(state, action) {
+      state.productsCount = action.payload;
     },
     replaceCategories(state, action) {
       state.categories = action.payload;
@@ -34,9 +40,18 @@ const productSlice = createSlice({
     removePriceFilter(state) {
       state.priceFilter = null;
     },
-    sortby(state,action){
-      state.sortby=action.payload
-    }
+    sortby(state, action) {
+      state.sortby = action.payload;
+    },
+    sorttype(state) {
+      state.sortingOrder = !state.sortingOrder;
+    },
+    onNextPage(state) {
+      state.currentPage = state.currentPage + 1;
+    },
+    onPreviousPage(state) {
+      state.currentPage = state.currentPage - 1;
+    },
   },
 });
 

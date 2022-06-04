@@ -1,9 +1,10 @@
 import classes from "./CartButton.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { uiSliceActions } from "../redux/ui";
-import { ArrowRight } from "react-bootstrap-icons";
-import { Cart } from "react-bootstrap-icons";
 import { Fragment } from "react";
+import { BsCart4 } from "react-icons/bs";
+
+
 
 const CartButton = (props: any) => {
   const totalQuantity = useSelector((state: any) => state.cart.totalQuantity);
@@ -17,8 +18,7 @@ const CartButton = (props: any) => {
   return (
     <Fragment>
       <button className={classes.button} onClick={cartHandler}>
-        <Cart />
-        <ArrowRight />
+        <BsCart4 />
         <span className={classes.badge}>{totalQuantity}</span>
       </button>
     </Fragment>

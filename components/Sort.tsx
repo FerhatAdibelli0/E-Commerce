@@ -1,20 +1,29 @@
-import Link from "next/link";
 import classes from "./Sort.module.css";
 import { productsSliceActions } from "../redux/product";
 import { useDispatch } from "react-redux";
+import { BsArrowDownUp } from "react-icons/bs";
 
 const Sort = () => {
   const dispatch = useDispatch();
   const sortingHandler = (event: any) => {
     dispatch(productsSliceActions.sortby(event.target.value));
   };
+
+  const sortTypeHandler = (event: any) => {
+    dispatch(productsSliceActions.sorttype());
+  };
+
   return (
     <nav className={classes.navbar}>
       <h6 className={classes.logo}>Photography / Premium Photos</h6>
       <ul className={classes.links}>
         <li className={classes.navlink}>
           <span>Sortby</span>
-          <select onChange={sortingHandler}>
+          <BsArrowDownUp
+            onClick={sortTypeHandler}
+            style={{ cursor: "pointer" }}
+          />
+          <select onChange={sortingHandler} className="m-2">
             <option defaultChecked>price</option>
             <option>name</option>
           </select>
