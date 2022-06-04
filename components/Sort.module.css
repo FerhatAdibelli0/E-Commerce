@@ -4,6 +4,9 @@
   align-items: center;
   padding: 0 2rem;
   border-bottom: 5px, solid, grey;
+  border-top: 2px solid grey;
+  width: 98%;
+  margin: 0 auto;
 }
 .logo {
   font-size: 1.2rem;

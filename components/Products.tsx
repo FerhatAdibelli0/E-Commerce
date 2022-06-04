@@ -1,5 +1,5 @@
 import { cartSliceActions } from "../redux/cart";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import classes from "../components/Products.module.css";
 import { uiSliceActions } from "../redux/ui";
@@ -34,14 +34,26 @@ const Products = () => {
             products.map((item: any, index: any) => (
               <Col sm="6" className="mb-3" key={index}>
                 <Card>
-                  <span>{item.featured ? null : "Featured"}</span>
-                  <CardImg
-                    alt={item.name}
-                    src={item.image.src}
-                    top
-                    width="100%"
-                    height="400px"
-                  />
+                  <div>
+                    <span className={classes.feature}>
+                      {item.featured ? null : "Featured"}
+                    </span>
+                    <div
+                      className={classes.addCart}
+                      onClick={() => {
+                        addToCartHandler(item.name);
+                      }}
+                    >
+                      <div className={classes.cart}>Add To Cart</div>
+                      <CardImg
+                        alt={item.name}
+                        src={item.image.src}
+                        top
+                        width="100%"
+                        height="400px"
+                      />
+                    </div>
+                  </div>
                   <CardBody>
                     <CardTitle tag="h5" className="text-center">
                       {item.name}
@@ -53,7 +65,7 @@ const Products = () => {
                       {item.price}
                       <CardText>{item.currency}</CardText>
                     </CardSubtitle>
-                    <div className="d-flex justify-content-center mt-2">
+                    {/* <div className="d-flex justify-content-center mt-2">
                       <Button
                         onClick={() => {
                           addToCartHandler(item.name);
@@ -61,7 +73,7 @@ const Products = () => {
                       >
                         Add To Cart
                       </Button>
-                    </div>
+                    </div> */}
                   </CardBody>
                 </Card>
               </Col>
