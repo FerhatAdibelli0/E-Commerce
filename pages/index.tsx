@@ -1,20 +1,11 @@
 import Sidebars from "../components/Sidebars";
 import Products from "../components/Products";
 import { productsSliceActions } from "../redux/product";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import classes from "../styles/Home.module.css";
 import { useSelector } from "react-redux";
-
-// {
-//     "categories": [
-//         "ocean"
-//     ],
-//     "maxPrice": 15,
-//     "sort_by": "name|price",
-//     "sorting_order": "DESC|ASC",
-//     "page_number": 0
-// }
+import Head from "next/head";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -42,6 +33,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const filter = filters.length > 0 ? filters : null;
+      console.log(filter);
       const sort_order = sortingOrder ? "ASC" : "DESC";
       try {
         const data = await fetch(
@@ -69,10 +61,20 @@ const HomePage = () => {
   }, [filters, priceFilter, sorting, sortingOrder, currentpage]);
 
   return (
-    <main className={classes.container}>
-      <Sidebars />
-      <Products />
-    </main>
+    <Fragment>
+      <Head>
+        <title>Bejamas</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div className={classes.container}>
+        <aside>
+          <Sidebars />
+        </aside>
+        <main>
+          <Products />
+        </main>
+      </div>
+    </Fragment>
   );
 };
 

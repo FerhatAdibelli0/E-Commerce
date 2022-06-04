@@ -1,5 +1,5 @@
 import { cartSliceActions } from "../redux/cart";
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import classes from "../components/Products.module.css";
 import { uiSliceActions } from "../redux/ui";
@@ -31,23 +31,29 @@ const Products = () => {
       <Peginator>
         <Row className="p-5">
           {products.length > 0 ? (
-            products.map((item: any) => (
-              <Col sm="6" className="mb-3" key={Math.random()}>
+            products.map((item: any, index: any) => (
+              <Col sm="6" className="mb-3" key={index}>
                 <Card>
+                  <span>{item.featured ? null : "Featured"}</span>
                   <CardImg
                     alt={item.name}
                     src={item.image.src}
                     top
                     width="100%"
-                    height="350px"
+                    height="400px"
                   />
                   <CardBody>
-                    <CardTitle tag="h5">{item.name}</CardTitle>
-                    <CardSubtitle className="mb-2 text-muted" tag="h6">
+                    <CardTitle tag="h5" className="text-center">
+                      {item.name}
+                    </CardTitle>
+                    <CardSubtitle
+                      className="mb-2 text-muted d-flex justify-content-center"
+                      tag="h6"
+                    >
                       {item.price}
+                      <CardText>{item.currency}</CardText>
                     </CardSubtitle>
-                    <CardText>{item.currency}</CardText>
-                    <div className="d-flex justify-content-center">
+                    <div className="d-flex justify-content-center mt-2">
                       <Button
                         onClick={() => {
                           addToCartHandler(item.name);

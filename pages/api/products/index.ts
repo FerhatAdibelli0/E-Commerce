@@ -1,38 +1,10 @@
-// import { gql } from "graphql-request";
+async function handler(req: any, res: any) {
+  if (req.method === "POST") {
+    const data = req.body;
+    console.log(data);
 
-// import { GraphQLClient } from "graphql-request";
+    res.status(201).json({ message: "Meetup inserted!" });
+  }
+}
 
-// const endpoint = "https://graphql.fauna.com/graphql";
-
-// const graphQLClient = new GraphQLClient(endpoint, {
-//   headers: {
-//     authorization: `Basic Zm5BRW9MbzlOM0FDVEp0ZW5pSmNUVmRlblZRd2tFdF9lYmdXUC1NXzpGZXJoYXQ6YWRtaW4=`,
-//   },
-// });
-
-// const getAllProducts = async () => {
-//   const query = gql`
-//     query {
-//       posts {
-//         data {
-//           name
-//           category
-//           price
-//           currency
-//           image
-//           bestseller
-//           featured
-//           id
-//         }
-//       }
-//     }
-//   `;
-
-//   const response = await graphQLClient.request(query);
-//   const data = JSON.parse(JSON.stringify(response));
-
-//   return data.posts.data;
-// };
-
-
-// export default getAllProducts;
+export default handler;

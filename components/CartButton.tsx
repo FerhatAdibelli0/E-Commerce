@@ -18,7 +18,7 @@ const CartButton = (props: any) => {
   return (
     <Fragment>
       <button className={classes.button} onClick={cartHandler}>
-        <BsCart4 />
+        <BsCart4 size={40}/>
         <span className={classes.badge}>{totalQuantity}</span>
       </button>
     </Fragment>

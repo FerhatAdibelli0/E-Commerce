@@ -21,9 +21,9 @@ const Sort = () => {
           <span>Sortby</span>
           <BsArrowDownUp
             onClick={sortTypeHandler}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer",marginRight:"0.5rem" }}
           />
-          <select onChange={sortingHandler} className="m-2">
+          <select onChange={sortingHandler} className="m-2 p-1">
             <option defaultChecked>price</option>
             <option>name</option>
           </select>

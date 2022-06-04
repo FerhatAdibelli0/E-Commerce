@@ -15,9 +15,12 @@
 }
 
 .badge {
-  background-color: #c6e0dd;
+  background-color: #edf3f2;
   border-radius: 50px;
-  padding: 0.15rem 1.25rem;
-  color: #1d1d1d;
+  padding: 0.15rem 0.75rem;
+  position: absolute;
+  right: 0.80rem;
+  top:3.75rem;
+  /* color: #1d1d1d; */
 
 }

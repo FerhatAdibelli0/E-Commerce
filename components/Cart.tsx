@@ -17,7 +17,7 @@ const Cart = (props: any) => {
   };
 
   const closeCartHandler = () => {
-   dispatch(uiSliceActions.isShown());
+    dispatch(uiSliceActions.isShown());
   };
 
   return (
@@ -39,7 +39,7 @@ const Cart = (props: any) => {
             />
           ))
         ) : (
-          <h4>No found product</h4>
+          <h4 className="text-center">No found product</h4>
         )}
       </ul>
       <div className={classes.button}>
