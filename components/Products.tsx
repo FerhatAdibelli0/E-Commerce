@@ -29,9 +29,9 @@ const Products = () => {
       <Row className="p-5">
         {products.length > 0 ? (
           products.map((item: any) => (
-            <Col sm="6" className="mb-3" key={item.image}>
+            <Col sm="6" className="mb-3" key={Math.random()}>
               <Card>
-                <CardImg alt={item.name} src={item.image} top width="100%" />
+                <CardImg alt={item.name} src={item.image.src} top width="100%" />
                 <CardBody>
                   <CardTitle tag="h5">{item.name}</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">

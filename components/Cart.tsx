@@ -26,9 +26,8 @@ const Cart = (props: any) => {
               key={fun.id}
               item={{
                 id: fun.id,
-                title: fun.name,
-                quantity: fun.quantity,
-                total: fun.totalprice,
+                name: fun.name,
+                image:fun.image,
                 price: fun.price,
               }}
             />
