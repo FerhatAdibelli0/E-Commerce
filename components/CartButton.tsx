@@ -6,7 +6,7 @@ import { BsCart4 } from "react-icons/bs";
 
 
 
-const CartButton = (props: any) => {
+const CartButton = () => {
   const totalQuantity = useSelector((state: any) => state.cart.totalQuantity);
 
   const dispatch = useDispatch();

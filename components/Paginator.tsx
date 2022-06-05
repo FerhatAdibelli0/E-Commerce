@@ -1,7 +1,7 @@
-import classes from "./Paginator.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { productsSliceActions } from "../redux/product";
 import { Fragment } from "react";
+import classes from "./Paginator.module.css";
 
 const paginator = (props: any) => {
   const prodCounts = useSelector((state: any) => state.products.productsCount);
@@ -25,7 +25,7 @@ const paginator = (props: any) => {
       <div className={classes.paginator}>
         {props.children}
         <div className={classes.paginator__controls}>
-          {totalItemsPerCome > 0 && currentpage > 0 && (
+          {currentpage > 0 && (
             <button
               className={classes.paginator__control}
               onClick={onPrevHandler}

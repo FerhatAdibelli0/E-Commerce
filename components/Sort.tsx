@@ -1,7 +1,7 @@
-import classes from "./Sort.module.css";
 import { productsSliceActions } from "../redux/product";
 import { useDispatch } from "react-redux";
 import { BsArrowDownUp } from "react-icons/bs";
+import classes from "./Sort.module.css";
 
 const Sort = () => {
   const dispatch = useDispatch();
@@ -9,17 +9,17 @@ const Sort = () => {
     dispatch(productsSliceActions.sortby(event.target.value));
   };
 
-  const sortTypeHandler = (event: any) => {
+  const sortTypeHandler = () => {
     dispatch(productsSliceActions.sorttype());
   };
 
   return (
-    <nav className={classes.navbar}>
-      <h6 className={classes.logo}>
+    <nav className={classes.sort}>
+      <h6 className={classes.title}>
         Photography / <span className="text-muted ">Premium Photos</span>{" "}
       </h6>
-      <ul className={classes.links}>
-        <li className={classes.navlink}>
+      <ul className={classes.sort_list}>
+        <li className={classes.sort_list_items}>
           <BsArrowDownUp
             onClick={sortTypeHandler}
             style={{ cursor: "pointer", marginRight: "0.5rem" }}

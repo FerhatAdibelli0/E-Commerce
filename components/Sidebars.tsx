@@ -26,7 +26,6 @@ const Sidebars = () => {
       dispatch(productsSliceActions.removePriceFilter());
     }
   };
-
   return (
     <Row className={classes.navbar}>
       <div className={classes.container}>

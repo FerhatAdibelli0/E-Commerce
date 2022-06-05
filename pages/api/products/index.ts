@@ -3,7 +3,7 @@ async function handler(req: any, res: any) {
     const data = req.body;
     console.log(data);
 
-    res.status(201).json({ message: "Meetup inserted!" });
+    res.status(201).json({ message: "Data fetched successfully!" });
   }
 }
 

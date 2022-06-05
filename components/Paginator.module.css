@@ -12,13 +12,13 @@
   font: inherit;
   cursor: pointer;
   font-size: 1rem;
-  color: #3b0062;
+  color: black;
 }
 
 .paginator__control:hover,
 .paginator__control:active {
-  color: #fab83f;
-  border-color: #fab83f;
+  color: grey;
+  border-color: grey;
 }
 
 .paginator__control:focus {

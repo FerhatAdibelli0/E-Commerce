@@ -1,10 +1,11 @@
 import { cartSliceActions } from "../redux/cart";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import classes from "../components/Products.module.css";
 import { uiSliceActions } from "../redux/ui";
 import Peginator from "./Paginator";
+import Sort from "./Sort";
 import { BookmarkStarFill } from "react-bootstrap-icons";
+import classes from "../components/Products.module.css";
 import {
   Card,
   CardImg,
@@ -30,6 +31,7 @@ const Products = () => {
   return (
     <div className={classes.container}>
       <Peginator>
+        <Sort />
         <Row className="p-5">
           {products.length > 0 ? (
             products.map((item: any, index: any) => (

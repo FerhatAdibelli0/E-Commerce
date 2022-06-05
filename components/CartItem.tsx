@@ -12,9 +12,6 @@ const CartItem = (props: any) => {
         <h3>{name}</h3>${price.toFixed(2)}{" "}
         <span className={classes.itemprice}>(${price.toFixed(2)}/item)</span>
       </div>
-      {/* <header>
-        <div className={classes.price}></div>
-      </header> */}
     </li>
   );
 };

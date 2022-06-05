@@ -1,4 +1,4 @@
-.container {
+.container{
   padding: 2rem;
   display: flex;
   justify-content: space-between;
@@ -83,5 +83,5 @@
 }
 .header_position {
   position: absolute;
-  z-index:50
+  z-index: 50;
 }

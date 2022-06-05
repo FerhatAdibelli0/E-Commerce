@@ -1,8 +1,7 @@
 import { Fragment } from "react";
 import CartButton from "./CartButton";
-import classes from "./Navbar.module.css";
-import Sort from "./Sort";
 import { useSelector } from "react-redux";
+import classes from "./Navbar.module.css";
 import Cart from "./Cart";
 
 const Navbar = () => {
@@ -18,7 +17,6 @@ const Navbar = () => {
         </ul>
       </nav>
       {isShown ? <Cart /> : null}
-      <Sort />
     </Fragment>
   );
 };

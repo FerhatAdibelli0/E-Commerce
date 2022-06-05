@@ -9,7 +9,7 @@
 .navlink {
   list-style: none;
   margin: 0.5rem 0rem;
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 .navlink a {
   text-decoration: none;
@@ -29,10 +29,12 @@
   margin-bottom: 5px;
 }
 
-.container label{
+.container label {
   margin-left: 10px;
 }
 
-.subcontainer{
+.subcontainer {
   padding-left: 0;
 }
+
+

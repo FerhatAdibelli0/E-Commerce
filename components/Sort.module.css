@@ -1,32 +1,20 @@
-.navbar {
+.sort {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  border-bottom: 5px, solid, grey;
-  border-top: 2px solid grey;
-  width: 98%;
+  width: 100%;
+  max-width: 73rem;
   margin: 0 auto;
 }
-.logo {
+.title {
   font-size: 1.2rem;
   font-weight: 600;
 }
-.links {
+.sort_list {
   display: flex;
 }
-.navlink {
+.sort_list_items {
   list-style: none;
   margin: 0 0.75rem;
-}
-.navlink a {
-  text-decoration: none;
-  color: black;
-}
-.navlink a:hover {
-  color: #f9826c;
-}
-
-.navbar span {
-  margin-right: 1rem;
 }

@@ -3,9 +3,9 @@ import Products from "../components/Products";
 import { productsSliceActions } from "../redux/product";
 import { Fragment, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import classes from "../styles/Home.module.css";
 import { useSelector } from "react-redux";
 import Head from "next/head";
+import classes from "../styles/Home.module.css";
 
 const HomePage = (props: any) => {
   const dispatch = useDispatch();
@@ -56,10 +56,10 @@ const HomePage = (props: any) => {
         <meta name="description" content="Excellent Bejamas Corparation" />
       </Head>
       <div className={classes.container}>
-        <aside>
+        <aside className={classes.aside}>
           <Sidebars />
         </aside>
-        <main>
+        <main className={classes.main}>
           <Products />
         </main>
       </div>
