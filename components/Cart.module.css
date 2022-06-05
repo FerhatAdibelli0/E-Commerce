@@ -3,7 +3,7 @@
   background-color: #6e6363;
   color: white;
   position: absolute;
-  z-index: 10;
+  z-index: 150;
   top: 8%;
   right: 4%;
 }
@@ -21,8 +21,11 @@
 }
 .closer {
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
   align-items: center;
+  position: absolute;
+  top: 0;
+  right: 3%;
 }
 .closer span {
   padding: 5px;

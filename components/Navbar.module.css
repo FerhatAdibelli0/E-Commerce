@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  border-bottom: 5px, solid, grey;
+  /* border-bottom: 5px, solid, grey; */
 }
 .logo {
   font-size: 1.2rem;

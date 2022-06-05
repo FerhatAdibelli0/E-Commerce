@@ -8,8 +8,11 @@ const paginator = (props: any) => {
   const ITEM_PER_PAGE = 4;
   const lastPage = Math.floor(prodCounts / ITEM_PER_PAGE);
   const currentpage = useSelector((state: any) => state.products.currentPage);
-  const dispatch = useDispatch();
+  const totalItemsPerCome = useSelector(
+    (state: any) => state.products.products
+  ).length;
 
+  const dispatch = useDispatch();
   const onNextHandler = () => {
     dispatch(productsSliceActions.onNextPage());
   };
@@ -17,13 +20,12 @@ const paginator = (props: any) => {
   const onPrevHandler = () => {
     dispatch(productsSliceActions.onPreviousPage());
   };
-
   return (
     <Fragment>
       <div className={classes.paginator}>
         {props.children}
         <div className={classes.paginator__controls}>
-          {currentpage > 0 && (
+          {totalItemsPerCome > 0 && currentpage > 0 && (
             <button
               className={classes.paginator__control}
               onClick={onPrevHandler}
@@ -31,14 +33,16 @@ const paginator = (props: any) => {
               Previous
             </button>
           )}
-          {currentpage < lastPage && (
-            <button
-              className={classes.paginator__control}
-              onClick={onNextHandler}
-            >
-              Next
-            </button>
-          )}
+          {totalItemsPerCome < ITEM_PER_PAGE
+            ? null
+            : currentpage < lastPage && (
+                <button
+                  className={classes.paginator__control}
+                  onClick={onNextHandler}
+                >
+                  Next
+                </button>
+              )}
         </div>
       </div>
     </Fragment>

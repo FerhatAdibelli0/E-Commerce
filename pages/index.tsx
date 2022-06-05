@@ -7,7 +7,7 @@ import classes from "../styles/Home.module.css";
 import { useSelector } from "react-redux";
 import Head from "next/head";
 
-const HomePage = () => {
+const HomePage = (props: any) => {
   const dispatch = useDispatch();
   let filters = useSelector((state: any) => state.products.filters);
   let priceFilter = useSelector((state: any) => state.products.priceFilter);
@@ -15,25 +15,13 @@ const HomePage = () => {
   let sortingOrder = useSelector((state: any) => state.products.sortingOrder);
   let currentpage = useSelector((state: any) => state.products.currentPage);
 
-  const fetchCategories = async () => {
-    try {
-      const data = await fetch(
-        "https://e918w86n71.execute-api.us-east-1.amazonaws.com/prod/ferhat/getCategories",
-        {
-          method: "POST",
-        }
-      );
-      const result = await data.json();
-      dispatch(productsSliceActions.replaceCategories(result));
-    } catch (err) {
-      console.log(err);
-    }
+  const fetchCategories = () => {
+    dispatch(productsSliceActions.replaceCategories(props.result));
   };
 
   useEffect(() => {
     const fetchProducts = async () => {
       const filter = filters.length > 0 ? filters : null;
-      console.log(filter);
       const sort_order = sortingOrder ? "ASC" : "DESC";
       try {
         const data = await fetch(
@@ -65,6 +53,7 @@ const HomePage = () => {
       <Head>
         <title>Bejamas</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Excellent Bejamas Corparation" />
       </Head>
       <div className={classes.container}>
         <aside>
@@ -77,5 +66,19 @@ const HomePage = () => {
     </Fragment>
   );
 };
+
+export async function getStaticProps() {
+  const data = await fetch(
+    "https://e918w86n71.execute-api.us-east-1.amazonaws.com/prod/ferhat/getCategories",
+    {
+      method: "POST",
+    }
+  );
+  const result = await data.json();
+  return {
+    props: { result },
+    revalidate: 1,
+  };
+}
 
 export default HomePage;

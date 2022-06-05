@@ -6,13 +6,6 @@
   flex-wrap: wrap;
 }
 
-.feature {
-  position: absolute;
-  border: 2px solid black;
-  background-color: white;
-  color: black;
-}
-
 .cart {
   position: absolute;
   top: 69%;
@@ -24,8 +17,71 @@
   text-align: center;
   line-height: 4px;
   font-size: larger;
+  z-index: 100;
 }
 
-.addCart:hover{
-cursor: pointer;
+.addCart:hover {
+  cursor: pointer;
+}
+
+.image {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 70;
+  opacity: 0;
+  transition: opacity, 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay:hover,
+.overlay:active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 70;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay_info {
+  font-size: large;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.feature {
+  color: rgb(247, 2, 2);
+}
+
+.bestseller {
+  background-color: white;
+  font-style: oblique;
+  color: black;
+  top: 0;
+  left: 8%;
+  padding: 1px;
+}
+
+.header_flag {
+  position: relative;
+}
+.header_position {
+  position: absolute;
+  z-index:50
 }

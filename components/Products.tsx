@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import classes from "../components/Products.module.css";
 import { uiSliceActions } from "../redux/ui";
 import Peginator from "./Paginator";
+import { BookmarkStarFill } from "react-bootstrap-icons";
 import {
   Card,
   CardImg,
@@ -35,9 +36,18 @@ const Products = () => {
               <Col sm="6" className="mb-3" key={index}>
                 <Card>
                   <div>
-                    <span className={classes.feature}>
-                      {item.featured ? null : "Featured"}
-                    </span>
+                    <div className={classes.header_flag}>
+                      <div className={classes.header_position}>
+                        <span className={classes.feature}>
+                          {item.featured ? null : (
+                            <BookmarkStarFill size={30} />
+                          )}
+                        </span>
+                        <span className={classes.bestseller}>
+                          {item.bestseller ? null : "Best Seller"}
+                        </span>
+                      </div>
+                    </div>
                     <div
                       className={classes.addCart}
                       onClick={() => {
@@ -45,13 +55,20 @@ const Products = () => {
                       }}
                     >
                       <div className={classes.cart}>Add To Cart</div>
-                      <CardImg
-                        alt={item.name}
-                        src={item.image.src}
-                        top
-                        width="100%"
-                        height="400px"
-                      />
+                      <div className={classes.image}>
+                        <CardImg
+                          alt={item.name}
+                          src={item.image.src}
+                          top
+                          width="100%"
+                          height="400px"
+                        />
+                        <div className={classes.overlay}>
+                          <div className={classes.overlay_info}>
+                            {item.name}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <CardBody>
